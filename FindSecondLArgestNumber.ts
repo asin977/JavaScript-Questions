@@ -1,3 +1,5 @@
+//Write a function to find second largest number in an array.
+
 const getSecondLargestNumber = (array: number[]): number | string => {
   const findUniqueNumbers: number[] = [...new Set(array)];
 
