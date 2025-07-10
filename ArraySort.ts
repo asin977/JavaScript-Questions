@@ -6,12 +6,13 @@ const sortArray = (array: number[]): number[] => {
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < n - 1 - i; j++) {
       if (array[j] > array[j + 1]) {
-        let value = array[j];
-        array[j] = array[j + 1];
-        array[j + 1] = value;
+        array[j] = array[j] + array[j + 1];
+        array[j + 1] = array[j] - array[j + 1];
+        array[j] = array[j] - array[j + 1];
       }
     }
   }
+  
   return array;
 };
 
