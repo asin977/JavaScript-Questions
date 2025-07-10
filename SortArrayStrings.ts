@@ -17,4 +17,4 @@ const sortStringsAlphabetically = (array: string[]): string[] => {
 };
 
 
-console.log(sortStringsAlphabetically(["books", "school", "pens", "teacher"]));
+console.log(sortStringsAlphabetically(["a", "c", "e", "b"]));
