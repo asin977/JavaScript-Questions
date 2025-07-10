@@ -1,15 +1,25 @@
 //Write a function to find second largest number in an array.
 
-const getSecondLargestNumber = (array: number[]): number | string => {
-  const findUniqueNumbers: number[] = [...new Set(array)];
+const getSecondLargestNumber = (array) => {
+  if (array.length < 2) console.log("Array must contain at least two elements");
 
-  if (findUniqueNumbers.length < 2) {
-    return "There is no second largest number";
+  let largest = array[0];
+
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > largest) {
+      largest = array[i];
+    }
   }
 
-  findUniqueNumbers.sort((a: number, b: number): number => b - a);
+  let secondLargest = -Infinity;
 
-  return findUniqueNumbers[1];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== largest && array[i] > secondLargest) {
+      secondLargest = array[i];
+    }
+  }
+
+  return secondLargest;
 };
 
 console.log(getSecondLargestNumber([1, 5, 7, 8, 79, 45]));
