@@ -12,7 +12,7 @@ const sortArray = (array: number[]): number[] => {
       }
     }
   }
-  
+
   return array;
 };
 
