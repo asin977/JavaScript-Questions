@@ -1,18 +1,9 @@
 const removeDuplicates = (array: number[]): number[] => {
   const result: number[] = [];
 
-  for (let i = 0; i < array.length; i++) {
-    let isDuplicate = false;
-
-    for (let j = 0; j < result.length; j++) {
-      if (array[i] === result[j]) {
-        isDuplicate = true;
-        break;
-      }
-    }
-
-    if (!isDuplicate) {
-      result.push(array[i]);
+  for (const num of array) {
+    if (!result.includes(num)) {
+      result.push(num);
     }
   }
 
