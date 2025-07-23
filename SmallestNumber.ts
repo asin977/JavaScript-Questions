@@ -1,22 +1,37 @@
-// Write a function to get second smallest element in an array.
-
 const getSecondSmallestNumber = (array) => {
-  if (array.length < 2) console.log("Array must contain at least two elements");
+  if (array.length < 2) {
+    console.log("Array must contain at least two elements");
+    return undefined;
+  }
 
-  let smallest = array[0];
+  let smallest, secondSmallest;
 
-  for (let i = 1; i < array.length; i++) {
-    if (array[i] < smallest) {
-      smallest = array[i];
+  if (array[0] < array[1]) {
+    smallest = array[0];
+    secondSmallest = array[1];
+  } else if (array[0] > array[1]) {
+    smallest = array[1];
+    secondSmallest = array[0];
+  } else {
+    smallest = secondSmallest = array[0];
+  }
+
+  for (let i = 2; i < array.length; i++) {
+    const num = array[i];
+
+    if (num < smallest) {
+      secondSmallest = smallest;
+      smallest = num;
+    } else if (
+      num !== smallest &&
+      (secondSmallest === smallest || num < secondSmallest)
+    ) {
+      secondSmallest = num;
     }
   }
 
-  let secondSmallest = Infinity;
-
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] !== smallest && array[i] < secondSmallest) {
-      secondSmallest = array[i];
-    }
+  if (smallest === secondSmallest) {
+    return undefined;
   }
 
   return secondSmallest;
@@ -24,3 +39,6 @@ const getSecondSmallestNumber = (array) => {
 
 console.log(getSecondSmallestNumber([4, 1, 7, 1, 3, 9]));
 console.log(getSecondSmallestNumber([5]));
+console.log(getSecondSmallestNumber([5, 5, 5]));
+console.log(getSecondSmallestNumber([5, 4]));
+console.log(getSecondSmallestNumber([2, 1, 2]));
