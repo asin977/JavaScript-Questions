@@ -1,5 +1,4 @@
 // Find the longest word in a string
-
 const getLongestWord = (str: string): string => {
   let longestWord = "";
   let currentWord = "";
