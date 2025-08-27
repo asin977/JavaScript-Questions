@@ -1,37 +1,5 @@
-//Find the Union of Two Arrays in JavaScript typecript.
-
 const findUnionOfArrays = <T>(arr1: T[], arr2: T[]): T[] => {
-  const unionArray: T[] = [];
-
-  for (let i = 0; i < arr1.length; i++) {
-    let isDuplicate = false;
-
-    for (let j = 0; j < unionArray.length; j++) {
-      if (unionArray[j] === arr1[i]) {
-        isDuplicate = true;
-        break;
-      }
-    }
-    if (!isDuplicate) {
-      unionArray.push(arr1[i]);
-    }
-  }
-
-  for (let i = 0; i < arr2.length; i++) {
-    let isDuplicate = false;
-
-    for (let j = 0; j < unionArray.length; j++) {
-      if (unionArray[j] === arr2[i]) {
-        isDuplicate = true;
-        break;
-      }
-    }
-    if (!isDuplicate) {
-      unionArray.push(arr2[i]);
-    }
-  }
-
-  return unionArray;
+  return [...new Set([...arr1, ...arr2])];
 };
 
 const array1 = [1, 2, 3, 4];
