@@ -9,4 +9,4 @@ const getSecondSmallestElement = (array: number[]): number | undefined => {
 };
 
 console.log(getSecondSmallestElement([4, 1, 7, 1, 3, 9]));
-console.log(getSecondSmallestElement([5])); 
+console.log(getSecondSmallestElement([5]));
