@@ -5,8 +5,9 @@ const drawRightAngledTriangle = (height: number): void => {
     let row = "";
 
     for (let j = 1; j <= i; j++) {
-      let row = +"*";
+      row += "*";
     }
+
     console.log(row);
   }
 };
