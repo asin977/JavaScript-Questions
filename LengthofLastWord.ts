@@ -2,17 +2,15 @@
 
 const lengthOfLastWord = (s: string): number => {
   let length = 0;
-  let foundWord = false;
+  let i = s.length - 1;
 
-  for (let i = s.length - 1; i >= 0; i--) {
-    if (s[i] === " ") {
-      if (foundWord) {
-        return length;
-      }
-    } else {
-      foundWord = true;
-      length++;
-    }
+  for (; i >= 0; i--) {
+    if (s[i] !== " ") break;
+  }
+
+  for (; i >= 0; i--) {
+    if (s[i] === " ") break;
+    length++;
   }
 
   return length;
@@ -21,3 +19,6 @@ const lengthOfLastWord = (s: string): number => {
 console.log(
   lengthOfLastWord("Bangalore city is also known as  city of the flowers")
 );
+console.log(lengthOfLastWord("Hello World  "));
+console.log(lengthOfLastWord("a "));
+console.log(lengthOfLastWord("    "));
