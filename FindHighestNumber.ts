@@ -1,22 +1,18 @@
-// Write a function to find the HCF of numbers
+// Write a function to find the largest number in an array.
 
-const findHighestNumber = (num1: number, num2: number) => {
-  let hcf: number = 1;
-  let smallerNumber: number;
+const getLargestNumber = (array) => {
+  if (array.length === 0) console.log("array is empty");
 
-  if (num1 < num2) {
-    smallerNumber = num1;
-  } else {
-    smallerNumber = num2;
-  }
+  let largest = array[0];
 
-  for (let i = 1; i <= smallerNumber; i++) {
-    if (num1 % i === 0 && num2 % i === 0) {
-      hcf = i;
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > largest) {
+      largest = array[i];
     }
   }
-  return hcf;
+
+  return largest;
 };
 
-console.log(findHighestNumber(60, 72));
-console.log(findHighestNumber(125, 30));
+console.log(getLargestNumber([5, 2, 8, 7, 9, 45]));
+console.log(getLargestNumber([4, 8, 79, 5, 6, 19]));
